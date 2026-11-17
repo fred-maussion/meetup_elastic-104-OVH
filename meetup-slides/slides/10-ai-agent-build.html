@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>An agent builds it</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  h1{font-size:44px;max-width:800px}
+  #duke{position:absolute;left:900px;top:4px;width:340px;height:190px;z-index:1;overflow:visible}
+  .cards{position:absolute;left:72px;right:72px;top:190px;display:grid;grid-template-columns:repeat(4,254px);gap:0 40px;z-index:2}
+  .cd{background:#fff;border:1px solid var(--line);border-top:1px solid var(--ink);padding:12px 16px 14px;height:214px}
+  .cd .mini{width:44px;height:42px;margin:2px 0 12px -4px;display:block}
+  .cd .slug{font:500 11px var(--mono);color:var(--blue);margin-top:2px}
+  .cd h3{font:600 17px/1.2 var(--sans);letter-spacing:-.3px;margin:5px 0 5px}
+  .cd p{font-size:12.5px;line-height:1.42;color:var(--grey)}
+  .cd .ex{display:inline-block;margin-top:7px;font-size:9.5px;padding:2px 7px;text-transform:none;letter-spacing:0}
+  .fl{position:absolute;top:296px;width:38px;height:14px;z-index:3;animation:ew-in .5s ease both}
+  .fl path.d,#loop path.d{stroke-dasharray:4 4;animation:march .7s linear infinite}
+  @keyframes march{to{stroke-dashoffset:-8}}
+  @keyframes fi{from{opacity:0}}
+  #loop{position:absolute;left:0;top:0;width:1280px;height:720px;z-index:2;animation:ew-in .5s ease 1.2s both;pointer-events:none}
+  .loopl{position:absolute;left:787px;width:294px;top:442px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;animation:ew-in .5s ease 1.3s both}
+  .loopl .tag{color:var(--blue)}
+  .loopl small{font-size:12.5px;color:var(--char);text-align:center;line-height:1.35}
+  .pill{position:relative;display:inline-block;width:56px;height:22px;font:700 11px/22px var(--mono);letter-spacing:.08em;text-align:center;color:#fff}
+  .pill span{position:absolute;inset:0}
+  .pill .f{background:#E0352B;animation:ff 5s ease-in-out infinite}
+  .pill .p{background:#02BCB7;animation:pp 5s ease-in-out infinite}
+  @keyframes ff{0%,42%{opacity:1}50%,92%{opacity:0}100%{opacity:1}}
+  @keyframes pp{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+  .mt{position:absolute;left:72px;top:438px;width:560px;z-index:2;border-left:2px solid var(--blue);padding:4px 0 4px 16px;animation:ew-in .6s ease 1.4s both}
+  .mt .tag{color:var(--blue)}
+  .mt p{font-size:14px;line-height:1.45;color:var(--char);margin-top:6px}
+  .mt .mono{font-size:12.5px;color:var(--blue)}
+  .src{position:absolute;left:72px;right:72px;top:600px;z-index:6;display:flex;align-items:center;gap:12px;border-top:1px solid var(--ink);padding-top:12px;animation:ew-in .6s ease 1.5s both}
+  .src .tag{color:var(--grey);margin-right:6px}
+  .src a{display:inline-flex;align-items:center;gap:8px;font:500 12px var(--mono);color:var(--blue);border:1.5px solid var(--blue);border-radius:4px;padding:6px 12px;background:#fff;text-decoration:none;pointer-events:auto;cursor:pointer}
+  .src a i{font:600 9.5px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+</style>
+</head>
+<body data-foot="OVH × Elastic · Part 3">
+<div class="z">
+  <div class="eyebrow in1">The AI part · skills for Elastic integrations</div>
+  <h1 class="in2">Let an agent build it.<br><span class="b">Let elastic-package keep it honest.</span></h1>
+</div>
+<svg id="duke" class="iso" viewBox="0 0 340 190"></svg>
+<div class="cards"><div class="cd in3"><div class="tag">01 · research</div><svg class="mini"></svg><div class="slug">/research-integration</div><h3>Deep analysis</h3><p>Reads the API docs: auth, endpoints, data formats, ECS candidates. Ends with a research brief.</p></div><div class="cd in4"><div class="tag">02 · sample</div><svg class="mini"></svg><div class="slug">python script</div><h3>A real sample</h3><p>A generated script calls the API and collects real data to build on.</p></div><div class="cd in5"><div class="tag">03 · create</div><svg class="mini"></svg><div class="slug">/create-integration</div><h3>Package and dashboard</h3><p>Data streams, CEL, pipelines, mappings, then the dashboard from the sample.</p><span class="chip on ex">+ kibana-dashboards</span></div><div class="cd in6"><div class="tag">04 · verify</div><svg class="mini"></svg><div class="slug">elastic-package</div><h3>Build, check, test</h3><p>Runs against a stack and a mocked API, and says exactly what failed.</p></div></div>
+<svg class="fl" style="left:327px;animation-delay:1.00s" viewBox="0 0 38 14"><path class="d" d="M2 7H28" fill="none" stroke="#0B64DD" stroke-width="1.8"/><path d="M25 2l8 5-8 5" fill="none" stroke="#0B64DD" stroke-width="1.8"/></svg><svg class="fl" style="left:621px;animation-delay:1.15s" viewBox="0 0 38 14"><path class="d" d="M2 7H28" fill="none" stroke="#0B64DD" stroke-width="1.8"/><path d="M25 2l8 5-8 5" fill="none" stroke="#0B64DD" stroke-width="1.8"/></svg><svg class="fl" style="left:915px;animation-delay:1.30s" viewBox="0 0 38 14"><path class="d" d="M2 7H28" fill="none" stroke="#0B64DD" stroke-width="1.8"/><path d="M25 2l8 5-8 5" fill="none" stroke="#0B64DD" stroke-width="1.8"/></svg>
+<svg id="loop" viewBox="0 0 1280 720"><path class="d" d="M1081 406 V434 H787 V414" fill="none" stroke="#0B64DD" stroke-width="1.8" style="animation:march .7s linear infinite reverse"/><path d="M782 420l5 -8 5 8" fill="none" stroke="#0B64DD" stroke-width="1.8"/></svg>
+<div class="loopl"><span class="pill"><span class="f">FAIL</span><span class="p">PASS</span></span><div class="tag">Self-healing loop</div><small>The agent reads the failure, fixes it, runs again.</small></div>
+<div class="mt"><div class="tag">Then maintain it</div><p><span class="mono">/maintain-integration</span> reviews and fixes an existing package, with the same loop, every time the API changes.</p></div>
+<div class="src"><span class="tag">Skills used</span><a href="https://github.com/elastic/integration-skills" target="_blank" rel="noopener">elastic/integration-skills <i>beta</i> ↗</a><a href="https://github.com/elastic/agent-skills" target="_blank" rel="noopener">elastic/agent-skills <i>technical preview</i> ↗</a></div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){
+const C = ["slate", "orange", "blue", "teal"];
+document.querySelectorAll('svg.mini').forEach((s, i) => OVH.mini(s, C[i], .5 + i * .15));
+// Duke Nukem homage: isometric block figure, detailed with small cubes
+const sc = EW.iso(document.getElementById('duke'), {ox: 170, oy: 162, s: 1.25});
+const SK = {top: '#FFE6D2', left: '#FFCFB0', right: '#E7A982'};      // skin
+const TT = {top: '#FFD3C6', left: '#FF7E62', right: '#D95F44'};      // orange tank top
+const HR = {top: '#FFE08A', left: '#FEC514', right: '#C99A0B'};      // blond flat-top
+const CG = {top: '#C9A27A', left: '#8A5A2B', right: '#6B4321'};      // cigar
+const EM = {top: '#FFB199', left: '#FF5A36', right: '#C23A1E'};      // ember
+const B = (o) => sc.box(Object.assign({drop: 90, shadow: false}, o));
+// boots, legs, belt
+B({x: 6, y: 4, w: 13, d: 15, z: 0, h: 6, c: 'ink', delay: .3}); B({x: 23, y: 4, w: 13, d: 15, z: 0, h: 6, c: 'ink', delay: .3});
+B({x: 8, y: 6, w: 11, d: 12, z: 6, h: 28, c: 'blue', delay: .35}); B({x: 23, y: 6, w: 11, d: 12, z: 6, h: 28, c: 'blue', delay: .35});
+B({x: 6, y: 5, w: 30, d: 16, z: 34, h: 4, c: 'ink', delay: .4}); B({x: 18, y: 21, w: 6, d: 1.5, z: 34.5, h: 3, c: 'yellow', delay: .45});
+// tank top, neck
+B({x: 5, y: 5, w: 32, d: 16, z: 38, h: 26, c: TT, delay: .45}); B({x: 16, y: 8, w: 10, d: 8, z: 64, h: 4, c: SK, delay: .5});
+// arms: upper arms flush with the chest, bent forearms and fists in front (drawn above the torso)
+const front = [];
+[-10, 40].forEach((x, i) => {
+  front.push(B({x, y: 12, w: 12, d: 9, z: 46, h: 20, c: SK, delay: .55 + i*.03}));
+  front.push(B({x: x + 1, y: 21, w: 10, d: 8, z: 44, h: 9, c: SK, delay: .6 + i*.03}));
+  front.push(B({x: x + 2, y: 29, w: 8, d: 5, z: 44.5, h: 7, c: SK, delay: .65 + i*.03}));
+});
+// head, square jaw, flat-top, cigar with an ember
+B({x: 11, y: 6, w: 20, d: 17, z: 68, h: 18, c: SK, delay: .7});
+B({x: 14, y: 21, w: 14, d: 3, z: 66, h: 5, c: SK, delay: .72});
+B({x: 10, y: 5, w: 22, d: 19, z: 84, h: 10, c: HR, delay: .75});
+front.push(B({x: 25, y: 23, w: 3, d: 9, z: 69, h: 3, c: CG, delay: .8})); front.push(B({x: 25, y: 32, w: 3, d: 3, z: 69, h: 3, c: EM, delay: .82}));
+sc.run();
+front.forEach(b => sc.top.appendChild(b.g));
+// sunglasses, drawn on the face (plane y = 23)
+const fc = (x0, x1, z0, z1, fill) => EW.el('polygon', {points: [[x0, 23, z0], [x1, 23, z0], [x1, 23, z1], [x0, 23, z1]].map(([x, y, z]) => sc.P(x, y, z).map(n => n.toFixed(1)).join(',')).join(' '), fill, style: 'animation:fi .4s ease 1.0s both'}, sc.top);
+fc(12, 20, 76, 82, '#1D1E24'); fc(22, 30, 76, 82, '#1D1E24'); fc(20, 22, 79, 81, '#1D1E24');
+const g = EW.el('g', {style: 'animation:ew-in .5s ease 1.4s both'}, document.getElementById('duke'));
+EW.el('rect', {x: 2, y: 12, width: 138, height: 34, rx: 6, fill: '#fff', stroke: '#1D1E24', 'stroke-width': 1.5}, g);
+EW.el('path', {d: 'M139 34 L160 56 L139 42', fill: '#fff', stroke: '#1D1E24', 'stroke-width': 1.5, 'stroke-linejoin': 'round'}, g);
+EW.el('line', {x1: 139, y1: 35, x2: 139, y2: 41, stroke: '#fff', 'stroke-width': 3}, g);
+const t = EW.el('text', {x: 71, y: 34, 'text-anchor': 'middle', 'font-family': 'IBM Plex Mono', 'font-weight': 700, 'font-size': 13, 'letter-spacing': '.04em', fill: '#1D1E24'}, g); t.textContent = 'PIECE OF CAKE.';
+})();
+</script>
+</body>
+</html>

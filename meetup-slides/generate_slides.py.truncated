@@ -1,0 +1,176 @@
+# -*- coding: utf-8 -*-
+"""Generates the OVH x Elastic meetup deck in the elastic-web fslides style.
+Run: python3 generate_slides.py   (rewrites slides/*.html, notes.json, fslides.config.js)
+"""
+import os, json
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+SLIDES_DIR = os.path.join(ROOT, "slides")
+
+# Speaker notes live in notes.json; we keep them, normalising em dashes.
+try:
+    with open(os.path.join(ROOT, "notes.json"), encoding="utf-8") as f:
+        OLD_NOTES = json.load(f)
+except Exception:
+    OLD_NOTES = {}
+
+NOTE_OVERRIDES = {
+    "04-six-sources.html": "DRAFT. Do not read eleven cards: name the four groups (compute and containers, data and network, security and cost, AI) and let people recognise how many separate places they have personally looked things up. Verbally add: eleven real products, eleven good reasons they are separate. Card contents come from each integration\u0027s data streams. Filename still says six-sources; only the filename is stale.",
+    "05-statement-doors.html": "DRAFT. Let this sit for a beat before clicking on: it is the so-what of the section. Do not explain the joke, just pause. Filename is stale (it was six doors).",
+    "15-four-integrations.html": "DRAFT. Eleven integrations today: compute, dedicated servers, managed Kubernetes, Rancher, DBaaS, object storage, load balancer, network security, IAM, billing, and AI / ML. Do not read the list: name the four groups and point at the empty slot on the platform, that one is the next integration (and your cue towards the ask). Slide file name still says four-integrations; only the filename is stale.",
+    "14-section4.html": "DRAFT. ~7 min. Eleven integrations is too many to walk through: pick two to show (Kubernetes, FinOps) and let the platform graphic carry the rest. Pacing check: if you are running behind, cut one of the two dashboard placeholder slides.",
+    "26-ask-thanks.html": "Final slide, after Questions. The ask: feedback, people willing to try the integrations on their own tenant, and contributors. Then a sincere thank you to OVHcloud for the opportunity and to Aurelie for trusting me with her tenant. Land it with a smile: nothing broke.",
+    "11-terraform.html": "DRAFT. This is the OVH Terraform provider beat. The snippet on the slide is an illustrative skeleton with placeholders (the real IAM policy file does not exist yet); if time allows, show the real .tf file or the registry page live instead and treat the slide as the fallback. Hand off to [OVH DevRel Name] right after this.",
+    "16-dashboard-k8s.html": "Real screenshot from the ovh_managed_kubernetes integration (Node SRE dashboard, assets/img/k8s-nodes.png). Other dashboards in the package: node pool, cluster logs, audit logs. Swap the image if you want a fresher capture from the demo tenant.",
+    "17-dashboard-finops.html": "Real screenshot from the ovh_billing integration, cropped below the KPI row (assets/img/finops.png). It is also the dashboard you return to live in part 5: keep filters and time range consistent with what you show live. The unedited screenshot shows real spend figures and a garbled Net Cost tile, so check before sharing the deck outside the room.",
+}
+
+def page(title, foot, css, body, js="", soft=False, hero=None):
+    cls = ' class="soft"' if soft else ''
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{title}</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+{css}
+</style>
+</head>
+<body{cls} data-foot="{foot}">
+{body}
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){{
+{js}
+}})();
+</script>
+</body>
+</html>
+'''
+
+HERO = '<svg id="hero" class="iso hero" viewBox="0 0 680 720"></svg>'
+FOOT = "OVH × Elastic"
+
+def scene_js(kind, seed=4, labels=False):
+    return f"OVH.scene('{kind}', {{seed: {seed}, labels: {'true' if labels else 'false'}}});"
+
+def minis_js(colors, start=.35, step=.12):
+    return ("const C = %s; document.querySelectorAll('svg.mini').forEach((s, i) => OVH.mini(s, C[i], %s + i * %s));"
+            % (json.dumps(colors), start, step))
+
+ARROW = '<svg class="arrow" width="22" height="22" viewBox="0 0 22 22"><path d="M0 11h18M12 5l6 6-6 6" fill="none" stroke="#1D1E24" stroke-width="1.5"/></svg>'
+
+slides = []
+
+def add(fn, label, html):
+    slides.append((fn, label, html))
+
+# ----------------------------------------------------------------- 01 title
+add("01-title.html", "Title", page("Title", f"{FOOT} · Meetup", """
+  h1{font-size:72px;line-height:.98;letter-spacing:-2.8px;margin-top:150px}
+  .sub{font-size:20px;max-width:480px;margin-top:26px}
+  .who{margin-top:34px;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--char);line-height:1.9}
+  .who b{color:var(--ink);font-weight:600}
+""", f"""<div class="z">
+  <div class="eyebrow in1">OVH × Elastic meetup</div>
+  <h1 class="in2">Taming OVH’s<br><span class="b">control plane.</span></h1>
+  <p class="sub in3">Eleven OVH products. One Fleet.</p>
+  <div class="who in4">[Date]<br><b>[Your Name]</b> · Solutions Architect, Elastic</div>
+</div>
+{HERO}""", scene_js("cover")))
+
+# ----------------------------------------------------------------- 02 agenda
+agenda = [("The fragmented control plane", 4), ("What’s an Elastic integration?", 4), ("Building one, with Terraform", 9),
+          ("A tour of the integrations", 7), ("Live demo", 11), ("Your questions", 5)]
+rows = "".join(f'<div class="ag in{min(i+2,6)}"><span class="n">{i+1:02d}</span><span class="t">{t}</span><span class="m">{m} min</span></div>' for i, (t, m) in enumerate(agenda))
+segs = "".join(f'<i style="flex:{m};animation-delay:{.5+i*.1}s" class="{"on" if t=="Live demo" else ""}"></i>' for i, (t, m) in enumerate(agenda))
+add("02-agenda.html", "Agenda", page("Agenda", f"{FOOT} · Tonight", """
+  h1{font-size:64px;letter-spacing:-2.4px;margin-top:150px}
+  .sub{font-size:19px;max-width:420px;margin-top:22px}
+  .list{position:absolute;left:640px;top:96px;width:568px;z-index:2}
+  .ag{display:grid;grid-template-columns:52px 1fr auto;align-items:baseline;padding:17px 0;border-top:1px solid var(--ink)}
+  .ag:last-child{border-bottom:1px solid var(--ink)}
+  .ag .n{font:500 13px var(--mono);color:var(--grey)}
+  .ag .t{font:500 23px var(--sans);letter-spacing:-.4px}
+  .ag .m{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+  .bar{position:absolute;left:640px;top:560px;width:568px;display:flex;gap:3px;z-index:2}
+  .bar i{height:12px;background:var(--slate);transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+  .bar i.on{background:var(--blue)}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:none}}
+  .cap2{position:absolute;left:640px;top:586px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--grey);z-index:2}
+""", f"""<div class="z">
+  <div class="eyebrow in1">Tonight · <b>40 minutes</b></div>
+  <h1 class="in2">Six parts.<br><span class="b">One story.</span></h1>
+  <p class="sub in3">With a guest spot from OVHcloud in part three.</p>
+</div>
+<div class="list">{rows}</div>
+<div class="bar">{segs}</div>
+<div class="cap2 in6">Time per part, to scale</div>""", ""))
+
+# ----------------------------------------------------------------- sections
+def section(fn, label, num, mins, h1, sub, kind, seed):
+    add(fn, label, page("Section", f"{FOOT} · Part {num}", """
+  .sub{font-size:20px;max-width:430px;margin-top:26px}
+""", f"""<div class="z">
+  <div class="eyebrow in1">Part {num} · <b>{mins} min</b></div>
+  <h1 class="xl sec in2">{h1}</h1>
+  <p class="sub in3">{sub}</p>
+</div>
+{HERO}""", scene_js(kind, seed)))
+
+# ----------------------------------------------------------------- 03 section 1
+section("03-section1.html", "Part 1 · Fragmented", 1, 4, 'A fragmented<br><span class="b">control plane.</span>',
+        "Not a knock on OVH. It is what covering bare metal to managed PaaS looks like.", "scatter", 3)
+
+# ----------------------------------------------------------------- 04 eleven sources
+BL, TE, OR, PK = "blue", "teal", "orange", "pink"
+cards = [(BL, "Compute", "Instances"), (BL, "Dedicated servers", "Logs, tasks, interventions"), (BL, "Managed Kubernetes", "Clusters, nodes, audit"), (BL, "Rancher", "Events and tasks"),
+         (TE, "DBaaS", "Clusters, backups, maintenance"), (TE, "Object storage", "Containers"), (TE, "Load balancer", "HAProxy logs"), (OR, "Network security", "Firewall, anti-hack, mitigation"),
+         (OR, "IAM", "Users and tokens"), (OR, "Billing", "Accounts and bills"), (PK, "AI / ML", "Deploy and training")]
+cx = "".join(f'<div class="cd in{min(i//4+3,6)}" style="animation-delay:{.3+i*.07}s"><svg class="mini" viewBox="0 0 64 60"></svg><div><h3>{t}</h3><p>{d}</p></div></div>' for i, (c, t, d) in enumerate(cards))
+add("04-six-sources.html", "Where signals live", page("Eleven sources", f"{FOOT} · Part 1", """
+  h1{font-size:46px;max-width:1000px}
+  .grid{position:absolute;left:72px;right:72px;top:210px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;z-index:2}
+  .cd{background:#fff;border:1px solid var(--line);padding:14px 18px 16px;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;min-height:128px}
+  .cd .mini{width:44px;height:42px}
+  .cd h3{font:600 17px/1.2 var(--sans);letter-spacing:-.3px;margin-bottom:4px}
+  .cd p{font-size:13px;line-height:1.4;color:var(--grey)}
+""", f"""<div class="z">
+  <div class="eyebrow in1">The control plane, in eleven pieces</div>
+  <h1 class="in2">Where the signals <span class="b">actually live.</span></h1>
+</div>
+<div class="grid">{cx}</div>""", minis_js([c for c, _, _ in cards], .5, .07)))
+
+# ----------------------------------------------------------------- 05 eleven doors
+dn = ["Compute", "Dedicated", "K8s", "Rancher", "DBaaS", "Storage", "LB", "Network", "IAM", "Billing", "AI"]
+doors = "".join(f'<div class="door in{min(i//4+3,6)}"><div class="dr"><i></i></div><div class="tag">{n}</div></div>' for i, n in enumerate(dn))
+add("05-statement-doors.html", "Eleven doors joke", page("Eleven doors", f"{FOOT} · Part 1", """
+  h1{font-size:60px;letter-spacing:-2.2px;max-width:1000px}
+  .row{position:absolute;left:72px;right:72px;top:380px;display:flex;gap:10px;align-items:flex-end;z-index:2}
+  .door{width:70px}
+  .dr{height:170px;border:1px solid var(--ink);background:#fff;position:relative;box-shadow:4px 4px 0 var(--slate)}
+  .dr i{position:absolute;right:9px;top:82px;width:9px;height:9px;background:var(--yellow);border:1px solid var(--ink)}
+  .door .tag{margin-top:12px;font-size:9.5px;letter-spacing:.03em}
+  .gap{flex:1}
+  .pane{width:210px;height:170px;border:1px dashed var(--ink);display:flex;align-items:center;justify-content:center;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--grey);text-align:center;line-height:1.7}
+""", f"""<div class="z">
+  <div class="eyebrow in1">The setup, not the blame</div>
+  <h1 class="in2">Eleven doors. Eleven keys.<br><span class="b">No single pane of glass.</span></h1>
+</div>
+<div class="row">{doors}<div class="gap"></div><div class="pane in6">Single pane<br>of glass<br>not found</div></div>""", ""))
+
+# ----------------------------------------------------------------- 06 section 2
+section("06-section2.html", "Part 2 · Concept", 2, 4, 'What’s an<br>Elastic<br><span class="b">integration?</span>',
+        "Conceptual and fast. The mechanics come next.", "schema", 5)
+
+# ----------------------------------------------------------------- 07 three questions
+def qcol(n, name, text, vis, cls):
+    return f'<div class="q {cls}"><div class="tag">{n} <i>· question</i></div><h2>{name}</h2><div class="vis">{vis}</div><p>{text}</p></div>'
+raw = "".join(f'<i style="background:{c};animation-delay:{.6+i*.05}s"></i>' for i, c in enumerate(["#1D1E24","#0B64DD","#48EFCF","#FF7E62","#FEC514","#B5BFCE","#0B64DD","#FF7E62","#48EFCF","#1D1E24","#FEC514","#B5BFCE"]))
+uni = "".join(f'<i style="background:#0B64DD;animation-delay:{1.0+i*.05}s"></i>' for i in range(12))
+assets_ = [("Dashboards", ""), ("Alerts", ""), ("Detection rules", ""), ("ML jobs", ""), ("Workflows · soon", "border-style:dashed;color:var(--grey)")]
+surf = '<div class="ch">' + "".join(f'<span class="chip" style="{st};animation-delay:{1.3+i*.1:.2f}s">{t}</span>' for i, (t, st) in enumerate(assets_)) + '</div>'

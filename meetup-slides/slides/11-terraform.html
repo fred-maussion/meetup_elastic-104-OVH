@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>What OVH brought to the agent</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  h1{font-size:46px;max-width:900px}
+  .logo{position:absolute;right:72px;top:40px;width:150px;z-index:3;animation:ew-in .6s ease .3s both}
+  .cards{position:absolute;left:72px;right:72px;top:176px;display:grid;grid-template-columns:repeat(3,352px);gap:0 40px;z-index:2}
+  .cd{background:#fff;border:1px solid var(--line);border-top:1px solid var(--ink);padding:14px 20px 14px;height:240px;position:relative}
+  .cd .mini{width:44px;height:42px;margin:4px 0 20px -4px;display:block}
+  .cd h3{font:600 20px/1.2 var(--sans);letter-spacing:-.4px;margin-bottom:5px}
+  .cd p{font-size:14px;line-height:1.45;color:var(--grey)}
+  .cd .cx{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+  .cd .chip{font-size:10.5px;padding:3px 8px}
+  .cd .lk{position:absolute;left:20px;bottom:12px;z-index:6;font:500 11px var(--mono);color:var(--blue);text-decoration:none;pointer-events:auto;cursor:pointer;border-bottom:1px solid var(--blue)}
+  .cd .more{font:500 11px var(--mono);color:var(--blue);letter-spacing:.02em}
+  .dn{position:absolute;top:420px;width:14px;height:38px;z-index:3;animation:ew-in .5s ease both}
+  .dn path.d{stroke-dasharray:4 4;animation:march .7s linear infinite}
+  @keyframes march{to{stroke-dashoffset:-8}}
+  .ag{position:absolute;left:72px;top:464px;width:1136px;height:128px;z-index:2;background:#fff;border:1px solid var(--ink);box-shadow:8px 8px 0 var(--pink);display:grid;grid-template-columns:1fr 360px;align-items:center;animation:ew-in .6s cubic-bezier(.2,.7,.2,1) .9s both}
+  .ag .l{display:grid;grid-template-columns:64px 1fr;gap:0 14px;align-items:center;padding:0 26px}
+  .ag .l .mini{width:56px;height:54px}
+  .ag .tag{color:var(--pink)}
+  .ag h3{font:600 22px var(--sans);letter-spacing:-.4px;margin:4px 0}
+  .ag p{font-size:14px;line-height:1.45;color:var(--char)}
+  .ag .r{border-left:1px solid var(--line);height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 24px}
+  .ag .r .tag{color:var(--blue)}
+  .ag .r b{font:500 26px/1.1 var(--sans);letter-spacing:-.9px;color:var(--blue);margin-top:6px;text-wrap:balance}
+</style>
+</head>
+<body data-foot="OVH × Elastic · Part 3">
+<div class="z">
+  <div class="eyebrow in1">Behind the scenes · what OVH brought to the agent</div>
+  <h1 class="in2">OVH gave the agent <span class="b">everything it needed.</span></h1>
+</div>
+<img class="logo" src="assets/img/ovh-wordmark.svg" alt="OVHcloud">
+<div class="cards"><div class="cd in3"><div class="tag">01 · know</div><svg class="mini"></svg><h3>OVH MCP</h3><p>OVH exposed to the agent through an MCP server: the API and its documentation.</p><div class="cx"><span class="chip on">MCP</span></div><a class="lk" href="https://docs.ovhcloud.com/en/guides/web-cloud/domains/mcp-domain-getting-started" target="_blank" rel="noopener">docs.ovhcloud.com · MCP server&nbsp;↗</a></div><div class="cd in4"><div class="tag">02 · access</div><svg class="mini"></svg><h3>IAM and API keys</h3><p>A scoped identity defined in Terraform, or a plain API key.</p><div class="cx"><span class="chip on">Terraform IAM</span><span class="chip">API key</span><span class="more">More in a minute →</span></div><a class="lk" href="https://registry.terraform.io/providers/ovh/ovh/latest/docs" target="_blank" rel="noopener">registry.terraform.io · ovh provider&nbsp;↗</a></div><div class="cd in5"><div class="tag">03 · learn</div><svg class="mini"></svg><h3>Developer hub</h3><p>API reference, SDKs, CLI, the Terraform provider and an MCP server, in one place.</p><div class="cx"><span class="chip on">dev hub</span></div><a class="lk" href="https://developers.eu.ovhcloud.com/" target="_blank" rel="noopener">developers.eu.ovhcloud.com&nbsp;↗</a></div></div>
+<svg class="dn" style="left:241px;animation-delay:1.00s" viewBox="0 0 14 38"><path class="d" d="M7 2V28" fill="none" stroke="#0B64DD" stroke-width="1.8"/><path d="M2 24l5 8 5-8" fill="none" stroke="#0B64DD" stroke-width="1.8"/></svg><svg class="dn" style="left:633px;animation-delay:1.15s" viewBox="0 0 14 38"><path class="d" d="M7 2V28" fill="none" stroke="#0B64DD" stroke-width="1.8"/><path d="M2 24l5 8 5-8" fill="none" stroke="#0B64DD" stroke-width="1.8"/></svg><svg class="dn" style="left:1025px;animation-delay:1.30s" viewBox="0 0 14 38"><path class="d" d="M7 2V28" fill="none" stroke="#0B64DD" stroke-width="1.8"/><path d="M2 24l5 8 5-8" fill="none" stroke="#0B64DD" stroke-width="1.8"/></svg>
+<div class="ag"><div class="l"><svg class="mini am"></svg><div><div class="tag">The agent, on its own</div><h3>Reads, authenticates, builds, tests.</h3><p>Researched the API, collected samples, built the packages and ran elastic-package until green.</p></div></div>
+  <div class="r"><div class="tag">Result</div><b>An Elastic integration, end to end.</b></div></div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){
+const C = ["blue", "teal", "orange"];
+document.querySelectorAll('.cards svg.mini').forEach((s, i) => OVH.mini(s, C[i], .5 + i * .15));
+OVH.mini(document.querySelector('svg.am'), 'pink', 1.1);
+})();
+</script>
+</body>
+</html>

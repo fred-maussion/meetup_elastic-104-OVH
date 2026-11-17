@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live demo</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+
+  h1{font-size:104px;line-height:.94;letter-spacing:-4.2px;margin-top:150px}
+  .live{display:inline-flex;align-items:center;gap:8px;font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#E0352B;border:1px solid #E0352B;padding:5px 11px;margin-top:0}
+  .live i{width:8px;height:8px;background:#E0352B;border-radius:50%;animation:blink 1.6s ease-in-out infinite}
+  @keyframes blink{50%{opacity:.25}}
+  .sub{font-size:20px;max-width:470px;margin-top:26px}
+
+</style>
+</head>
+<body data-foot="OVH × Elastic · Live">
+<div class="z">
+  <div class="eyebrow in1">Part 5 · <b>11 min</b></div>
+  <div class="in1" style="margin-top:14px"><span class="live"><i></i>Live</span></div>
+  <h1 class="in2">Live<br><span class="b">demo.</span></h1>
+  <p class="sub in3">A noisy pod, an autoscaling cluster, and a bill that notices before anyone else does.</p>
+</div>
+<svg id="hero" class="iso hero" viewBox="0 0 680 720"></svg>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){
+OVH.scene('demo', {seed: 11, labels: false});
+})();
+</script>
+</body>
+</html>

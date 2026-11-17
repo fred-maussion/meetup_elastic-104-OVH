@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Agenda</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+
+  h1{font-size:64px;letter-spacing:-2.4px;margin-top:150px}
+  .sub{font-size:19px;max-width:420px;margin-top:22px}
+  .list{position:absolute;left:640px;top:96px;width:568px;z-index:2}
+  .ag{display:grid;grid-template-columns:52px 1fr auto;align-items:baseline;padding:17px 0;border-top:1px solid var(--ink)}
+  .ag:last-child{border-bottom:1px solid var(--ink)}
+  .ag .n{font:500 13px var(--mono);color:var(--grey)}
+  .ag .t{font:500 23px var(--sans);letter-spacing:-.4px}
+  .ag .m{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+  .bar{position:absolute;left:640px;top:560px;width:568px;display:flex;gap:3px;z-index:2}
+  .bar i{height:12px;background:var(--slate);transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+  .bar i.on{background:var(--blue)}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:none}}
+  .cap2{position:absolute;left:640px;top:586px;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--grey);z-index:2}
+
+</style>
+</head>
+<body data-foot="OVH × Elastic · Tonight">
+<div class="z">
+  <div class="eyebrow in1">Tonight · <b>40 minutes</b></div>
+  <h1 class="in2">Six parts.<br><span class="b">One story.</span></h1>
+  <p class="sub in3">With OVHcloud on stage in part three.</p>
+</div>
+<div class="list"><div class="ag in2"><span class="n">01</span><span class="t">The fragmented control plane</span><span class="m">4 min</span></div><div class="ag in3"><span class="n">02</span><span class="t">What’s an Elastic integration?</span><span class="m">5 min</span></div><div class="ag in4"><span class="n">03</span><span class="t">Building one, with an AI agent</span><span class="m">13 min</span></div><div class="ag in5"><span class="n">04</span><span class="t">The integrations</span><span class="m">3 min</span></div><div class="ag in6"><span class="n">05</span><span class="t">Live demo</span><span class="m">11 min</span></div><div class="ag in6"><span class="n">06</span><span class="t">Your questions</span><span class="m">4 min</span></div></div>
+<div class="bar"><i style="flex:4;animation-delay:0.5s" class=""></i><i style="flex:5;animation-delay:0.6s" class=""></i><i style="flex:13;animation-delay:0.7s" class=""></i><i style="flex:3;animation-delay:0.8s" class=""></i><i style="flex:11;animation-delay:0.9s" class="on"></i><i style="flex:4;animation-delay:1.0s" class=""></i></div>
+<div class="cap2 in6">Time per part, to scale</div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){
+
+})();
+</script>
+</body>
+</html>

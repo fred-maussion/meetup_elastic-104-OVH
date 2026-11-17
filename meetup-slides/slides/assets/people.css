@@ -1,0 +1,11 @@
+@keyframes fi{from{opacity:0}}
+@keyframes maskoff{to{transform:translate(20px,120px) rotate(30deg);opacity:0}}
+.sb{position:absolute;z-index:6;background:#fff;border:1.5px solid var(--ink);padding:10px 14px;font:500 15px/1.35 var(--sans);color:var(--ink);box-shadow:4px 4px 0 var(--slate);animation:ew-in .45s cubic-bezier(.2,.7,.2,1) both;max-width:340px}
+.sb::after{content:'';position:absolute;bottom:-9px;left:26px;width:14px;height:14px;background:#fff;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg)}
+.sb.r::after{left:auto;right:26px}
+.sb.l::after{left:-9px;top:16px;bottom:auto;border:0;border-left:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.sb.ai{border-color:var(--pink);box-shadow:4px 4px 0 #FDE4F0}
+.sb.ai::after{border-color:var(--pink)}
+.sb b{color:var(--pink);font-weight:700}
+.tagline{position:absolute;z-index:6;font:500 11.5px var(--mono);letter-spacing:.04em;color:var(--grey);animation:ew-in .5s ease both}
+#stage{position:absolute;left:0;top:0;width:1280px;height:720px;z-index:1;overflow:visible}

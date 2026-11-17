@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Speaker: Frederic</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  .logo{position:absolute;right:72px;top:36px;width:130px;z-index:3;animation:ew-in .6s ease .3s both}
+  .pic{position:absolute;left:72px;top:150px;width:500px;height:430px;border:1px solid var(--ink);box-shadow:8px 8px 0 var(--blue);background:#fff;overflow:hidden;z-index:2;animation:ew-in .6s cubic-bezier(.2,.7,.2,1) .3s both}
+  .pic img{width:100%;height:100%;object-fit:cover;display:block}
+  .pic.empty{border-style:dashed;box-shadow:none;display:flex;align-items:center;justify-content:center;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+  .doc{position:absolute;left:648px;top:150px;width:560px;z-index:2}
+  .req{font:600 52px/1 var(--sans);letter-spacing:-2px;color:var(--ink);animation:ew-in .6s cubic-bezier(.2,.7,.2,1) .35s both}
+  .req .m{color:var(--blue)}
+  .code{margin-top:26px;font:400 20px/1 var(--mono);color:var(--ink)}
+  .ln{padding:7px 0;animation:ew-in .5s cubic-bezier(.2,.7,.2,1) both;white-space:nowrap}
+  .ln .k{color:var(--ink)}
+  .ln .c,.ln .br{color:var(--grey)}
+  .ln .v{color:var(--blue)}
+  .ln .v.ph{color:var(--grey-l)}
+  .res{margin-top:22px;display:flex;align-items:center;gap:10px;animation:ew-in .5s ease 1.7s both}
+  .res .chip{font-size:11px;padding:4px 10px}
+</style>
+</head>
+<body data-foot="OVH × Elastic · Speakers">
+<div class="z"><div class="eyebrow in1">Who is speaking</div></div>
+
+<div class="pic"><img src="assets/img/fred.png" alt="Frederic Maussion"></div>
+<div class="doc"><div class="req"><span class="m">POST</span> /sa/_doc</div><div class="code"><div class="ln" style="animation-delay:0.55s;padding-left:0px"><span class="br">{</span></div><div class="ln" style="animation-delay:0.67s;padding-left:28px"><span class="k">"name"</span><span class="c">:</span> <span class="v">"Frederic Maussion"</span>,</div><div class="ln" style="animation-delay:0.79s;padding-left:28px"><span class="k">"title"</span><span class="c">:</span> <span class="v">"Pr. Solutions Architect"</span>,</div><div class="ln" style="animation-delay:0.91s;padding-left:28px"><span class="k">"email"</span><span class="c">:</span> <span class="v">"frederic.maussion@elastic.co"</span>,</div><div class="ln" style="animation-delay:1.03s;padding-left:28px"><span class="k">"country_name"</span><span class="c">:</span> <span class="v">"France"</span>,</div><div class="ln" style="animation-delay:1.15s;padding-left:28px"><span class="k">"github"</span><span class="c">:</span> <span class="v">"github.com/fred-maussion"</span></div><div class="ln" style="animation-delay:1.27s;padding-left:0px"><span class="br">}</span></div></div><div class="res"><span class="chip on">201 created</span></div></div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+</body>
+</html>

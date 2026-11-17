@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eleven integrations</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+
+  h1{font-size:46px;margin-top:70px}
+  .stats{display:flex;gap:32px;margin-top:26px}
+  .stats > div{display:flex;flex-direction:column;align-items:center;text-align:center;white-space:nowrap}
+  .stats .n{font:500 54px/1 var(--sans);letter-spacing:-2px;color:var(--blue)}
+  .stats .l2{font:500 9.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);margin-top:3px}
+  .stats .l{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--grey);margin-top:6px}
+  .lg{margin-top:34px;max-width:480px}
+  .lg div{display:grid;grid-template-columns:18px 1fr;gap:0 12px;padding:9px 0;border-top:1px solid var(--ink);align-items:start}
+  .lg div:last-child{border-bottom:1px solid var(--ink)}
+  .lg .sw{margin-top:6px}
+  .lg b{font:600 17px var(--sans);letter-spacing:-.2px}
+  .lg span.d{display:block;font-size:13.5px;color:var(--grey);margin-top:2px}
+  .nx{position:absolute;left:870px;top:590px;font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--grey);z-index:3}
+
+</style>
+</head>
+<body data-foot="OVH × Elastic · Part 4">
+<div class="z">
+  <div class="eyebrow in1">Built so far · more keep landing</div>
+  <h1 class="in2">Eleven stops became<br><span class="b">one Fleet.</span></h1>
+  <div class="stats in3"><div><div class="n" data-n="11">11</div><div class="l">integrations</div></div><div><div class="n" data-n="27">27</div><div class="l">data streams</div></div><div><div class="n" data-n="15">15</div><div class="l">dashboards</div></div><div><div class="n" data-n="6">6</div><div class="l">alert rules</div></div><div><div class="n" data-n="1">1</div><div class="l">detection rule</div><div class="l2">Entity Analytics</div></div></div>
+  <div class="lg in3"><div><i class="sw" style="background:#0B64DD"></i><p><b>Compute and containers</b><span class="d">Compute, Dedicated servers, Managed Kubernetes, Rancher</span></p></div><div><i class="sw" style="background:#48EFCF"></i><p><b>Data and network</b><span class="d">DBaaS, Object storage, Load balancer</span></p></div><div><i class="sw" style="background:#FF7E62"></i><p><b>Security and cost</b><span class="d">IAM, Network security, Billing</span></p></div><div><i class="sw" style="background:#F04E98"></i><p><b>AI</b><span class="d">AI and ML workloads</span></p></div></div>
+</div>
+<svg id="hero" class="iso hero" viewBox="0 0 680 720"></svg>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){
+document.querySelectorAll('.stats .n').forEach((e, i) => EW.count(e, +e.dataset.n, {delay: .5 + i * .15, dur: 1.1}));
+OVH.scene('tour', {seed: 8, labels: false});
+})();
+</script>
+</body>
+</html>

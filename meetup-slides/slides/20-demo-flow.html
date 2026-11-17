@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Break it on purpose (timeline)</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  h1{font-size:46px;max-width:1000px}
+  .lanes{position:absolute;left:72px;top:174px;width:300px;height:332px;z-index:2}
+  .ln{position:absolute;left:0;width:300px;height:74px;border-top:1px solid var(--ink);padding-top:9px;animation:ew-in .5s cubic-bezier(.2,.7,.2,1) both}
+  .ln h3{font:600 18px var(--sans);letter-spacing:-.3px;margin:4px 0 3px}
+  .ln p{font-size:12.5px;line-height:1.4;color:var(--grey)}
+  #tl{position:absolute;left:398px;top:174px;width:810px;height:332px;overflow:visible;z-index:2}
+  #tl .m{font:500 9px 'IBM Plex Mono',monospace;letter-spacing:.06em;fill:#98A2B3}
+  #tl .m.on{fill:#0B64DD}
+  #tl .mn{font:700 10px 'IBM Plex Mono',monospace;fill:#1D1E24}
+  .res{position:absolute;left:72px;right:72px;top:528px;display:flex;align-items:baseline;gap:22px;z-index:2;border-top:1px solid var(--ink);padding-top:16px}
+  .res .from{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+  .res .to{font:500 44px var(--sans);letter-spacing:-1.6px;color:var(--blue)}
+  .res .why{margin-left:auto;max-width:300px;font-size:14px;line-height:1.5;color:var(--char)}
+  .ill{position:absolute;right:72px;top:150px;z-index:3;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--grey);animation:ew-in .5s ease 1.6s both}
+  @keyframes dr{to{stroke-dashoffset:0}}
+  @keyframes fi{from{opacity:0}}
+</style>
+</head>
+<body data-foot="OVH × Elastic · Part 5">
+<div class="z">
+  <div class="eyebrow in1">The chain we are tracing, live</div>
+  <h1 class="in2">Let’s break something <span class="b">on purpose.</span></h1>
+</div>
+<div class="ill">Illustrative · one timeline</div>
+<div class="lanes"><div class="ln in3" style="top:0px;animation-delay:0.40s"><div class="tag">01</div><h3>Flip a flag</h3><p>A flag injects real CPU and memory pressure.</p></div><div class="ln in4" style="top:86px;animation-delay:0.60s"><div class="tag">02</div><h3>Pod spikes</h3><p>OTel traces and metrics show it immediately.</p></div><div class="ln in5" style="top:172px;animation-delay:0.80s"><div class="tag">03</div><h3>Cluster scales</h3><p>OVH’s control plane adds a node.</p></div><div class="ln in6" style="top:258px;animation-delay:1.00s"><div class="tag">04</div><h3>Cost ticks up</h3><p>FinOps shows the bill moving, live.</p></div></div>
+<svg id="tl" viewBox="0 0 810 332"><line x1="170" y1="0" x2="170" y2="332" stroke="#B5BFCE" stroke-dasharray="3 4" style="animation:fi .5s ease 1.5s both"/><line x1="250" y1="0" x2="250" y2="332" stroke="#B5BFCE" stroke-dasharray="3 4" style="animation:fi .5s ease 1.5s both"/><line x1="330" y1="0" x2="330" y2="332" stroke="#B5BFCE" stroke-dasharray="3 4" style="animation:fi .5s ease 1.5s both"/><line x1="420" y1="0" x2="420" y2="332" stroke="#B5BFCE" stroke-dasharray="3 4" style="animation:fi .5s ease 1.5s both"/><g transform="translate(0,0)"><line x1="0" y1="70" x2="810" y2="70" stroke="#D3DAE6"/><path d="M0,56 L170,56 L170,18 L810,18" pathLength="1" fill="none" stroke="#0B64DD" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" style="animation:dr 1s ease 0.50s forwards"/><text x="4" y="48" class="m">OFF</text><text x="806" y="12" class="m on" text-anchor="end">ON</text><g style="animation:fi .4s ease 1.40s both"><circle cx="170" cy="18" r="10" fill="#fff" stroke="#0B64DD" stroke-width="2"/><text x="170" y="22" text-anchor="middle" class="mn">1</text></g></g><g transform="translate(0,86)"><line x1="0" y1="70" x2="810" y2="70" stroke="#D3DAE6"/><path d="M0,56 L190,56 L220,14 L250,44 L280,10 L310,40 L340,52 L390,56 L810,56" pathLength="1" fill="none" stroke="#E0352B" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" style="animation:dr 1s ease 0.75s forwards"/><g style="animation:fi .4s ease 1.65s both"><circle cx="250" cy="44" r="10" fill="#fff" stroke="#E0352B" stroke-width="2"/><text x="250" y="48" text-anchor="middle" class="mn">2</text></g></g><g transform="translate(0,172)"><line x1="0" y1="70" x2="810" y2="70" stroke="#D3DAE6"/><path d="M0,54 L330,54 L330,26 L810,26" pathLength="1" fill="none" stroke="#02BCB7" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" style="animation:dr 1s ease 1.00s forwards"/><g style="animation:fi .4s ease 1.90s both"><circle cx="330" cy="38" r="10" fill="#fff" stroke="#02BCB7" stroke-width="2"/><text x="330" y="42" text-anchor="middle" class="mn">3</text></g></g><g transform="translate(0,258)"><line x1="0" y1="70" x2="810" y2="70" stroke="#D3DAE6"/><path d="M0,58 L370,58 L420,50 L520,40 L640,28 L810,12 L810,70 L0,70 Z" fill="#FF7E62" opacity=".12" style="animation:fi .6s ease 1.75s both"/><path d="M0,58 L370,58 L420,50 L520,40 L640,28 L810,12" pathLength="1" fill="none" stroke="#FF7E62" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" style="animation:dr 1s ease 1.25s forwards"/><g style="animation:fi .4s ease 2.15s both"><circle cx="420" cy="50" r="10" fill="#fff" stroke="#FF7E62" stroke-width="2"/><text x="420" y="54" text-anchor="middle" class="mn">4</text></g></g><g opacity="0"><line x1="0" y1="-6" x2="0" y2="338" stroke="#1D1E24" stroke-width="1.5"/><animateTransform attributeName="transform" type="translate" from="0 0" to="810 0" dur="8s" begin="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.55;.55;0" keyTimes="0;.05;.95;1" dur="8s" begin="2.2s" repeatCount="indefinite"/></g></svg>
+<div class="res in6"><span class="from">Symptom</span><span class="to">→ Root cause and cost.</span><span class="why">Four signals, one correlated story.</span></div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+</body>
+</html>

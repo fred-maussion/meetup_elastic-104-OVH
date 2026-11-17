@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>What an integration brings</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  h1{font-size:44px;max-width:900px}
+  .gh{position:absolute;right:72px;top:40px;z-index:6;display:inline-flex;align-items:center;font:500 12.5px var(--mono);color:var(--blue);border:1.5px solid var(--blue);border-radius:4px;padding:7px 13px;background:#fff;text-decoration:none;pointer-events:auto;cursor:pointer;animation:ew-in .6s ease .4s both}
+  .pk{position:absolute;left:72px;top:166px;width:1136px;height:308px;border:1px dashed var(--ink);z-index:2;padding:30px 26px 0;display:grid;grid-template-columns:252px 252px 1fr;column-gap:34px;align-items:start;animation:ew-in .5s ease .2s both}
+  .pk .lab{position:absolute;left:18px;top:-9px;background:#fff;padding:0 10px;font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+  .pk .lab::before{content:'';display:inline-block;width:8px;height:8px;background:var(--blue);margin-right:8px}
+  .st{border-top:1px solid var(--ink);padding-top:10px}
+  .st h2{font:500 34px/1 var(--sans);letter-spacing:-1.2px;color:var(--blue);margin:8px 0 10px}
+  .st.val{border-top:2px solid var(--blue)}
+  .vis{display:flex;flex-wrap:wrap;gap:3px;width:130px;margin-bottom:10px}
+  .vis i{width:19px;height:19px;animation:pop .3s ease both}
+  .st ul{list-style:none;font-size:13.5px;line-height:1.35;color:var(--char)}
+  .st li{padding:7px 0;border-top:1px solid var(--line)}
+  .gap{display:flex;justify-content:center;padding-top:40px}
+  .vg{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+  .vi{display:grid;grid-template-columns:14px 1fr;gap:0 10px;padding:7px 0;border-top:1px solid var(--line);animation:ew-in .5s cubic-bezier(.2,.7,.2,1) both}
+  .vi .sw{margin-top:4px;width:11px;height:11px}
+  .vi h4{font:600 14.5px var(--sans);letter-spacing:-.2px}
+  .vi p{font-size:12.5px;line-height:1.35;color:var(--grey);margin-top:1px}
+  .vi.soon h4{color:var(--grey)}
+  .vi .chip{font-size:9px;padding:1px 5px;margin-left:6px;border-style:dashed;vertical-align:2px}
+  .up{position:absolute;left:624px;top:476px;z-index:3;display:flex;flex-direction:column;align-items:center;animation:ew-in .5s ease 1.0s both}
+  .up .chip{font-size:10px;padding:3px 8px;background:#fff}
+  .ag{position:absolute;left:72px;top:488px;width:1136px;height:96px;z-index:2;background:#fff;border:1px solid var(--ink);box-shadow:6px 6px 0 var(--blue);display:grid;grid-template-columns:250px 1fr;align-items:center;animation:ew-in .6s cubic-bezier(.2,.7,.2,1) .9s both}
+  .ag .who{padding:0 22px;border-right:1px solid var(--line);height:100%;display:flex;flex-direction:column;justify-content:center}
+  .ag .who .tag{color:var(--blue)}
+  .ag .who h3{font:600 19px var(--sans);letter-spacing:-.3px;margin-top:6px}
+  .ag .who p{font-size:12.5px;color:var(--grey);margin-top:2px}
+  .ag .in{display:flex;gap:16px;align-items:center;padding:0 22px}
+  .bx{border:1px solid var(--ink);padding:11px 16px;background:#fff}
+  .bx b{display:block;font:600 14.5px var(--sans);letter-spacing:-.2px}
+  .bx span{display:block;font:400 11.5px var(--mono);color:var(--grey);margin-top:3px}
+  .bx.otel{border-color:var(--teal-d);box-shadow:4px 4px 0 var(--teal)}
+  .bx.otel b .chip{display:inline-block;margin:0 0 0 8px;font-size:9px;padding:1px 5px;vertical-align:2px;border-style:dashed}
+  .plus{font:500 22px var(--mono);color:var(--grey)}
+  .mm{position:absolute;left:72px;right:72px;top:604px;z-index:6;display:flex;align-items:center;gap:12px;animation:ew-in .6s ease 1.3s both}
+  .mm .tag{color:var(--blue);white-space:nowrap;margin-right:4px}
+  .mm .chip{display:inline-block;white-space:nowrap;font-size:11.5px;padding:5px 10px;text-transform:none;letter-spacing:0}
+  .mm .chip b{font-weight:600;color:var(--ink);margin-right:5px}
+  @keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body data-foot="OVH × Elastic · Part 2">
+<div class="z">
+  <div class="eyebrow in1">What an integration brings</div>
+  <h1 class="in2">Collect it. Normalize it. <span class="b">Put it to work.</span></h1>
+</div>
+<a class="gh" href="https://github.com/elastic/integrations" target="_blank" rel="noopener">github.com/elastic/integrations&nbsp;↗</a>
+<div class="pk"><span class="lab">One integration package</span>
+  <div class="st in3"><div class="tag">01 <i>· collect</i></div><h2>Collect</h2><div class="vis"><i style="background:#1D1E24;animation-delay:0.50s"></i><i style="background:#0B64DD;animation-delay:0.54s"></i><i style="background:#48EFCF;animation-delay:0.58s"></i><i style="background:#FF7E62;animation-delay:0.62s"></i><i style="background:#FEC514;animation-delay:0.66s"></i><i style="background:#B5BFCE;animation-delay:0.70s"></i><i style="background:#0B64DD;animation-delay:0.74s"></i><i style="background:#FF7E62;animation-delay:0.78s"></i><i style="background:#48EFCF;animation-delay:0.82s"></i><i style="background:#1D1E24;animation-delay:0.86s"></i><i style="background:#FEC514;animation-delay:0.90s"></i><i style="background:#B5BFCE;animation-delay:0.94s"></i></div><ul><li>CEL polls REST APIs, like OVH’s</li><li>Versioned, one-click install</li></ul></div>
+    <div class="st in4"><div class="tag">02 <i>· schema</i></div><h2>Schema</h2><div class="vis"><i style="background:#0B64DD;animation-delay:0.90s"></i><i style="background:#0B64DD;animation-delay:0.94s"></i><i style="background:#0B64DD;animation-delay:0.98s"></i><i style="background:#0B64DD;animation-delay:1.02s"></i><i style="background:#0B64DD;animation-delay:1.06s"></i><i style="background:#0B64DD;animation-delay:1.10s"></i><i style="background:#0B64DD;animation-delay:1.14s"></i><i style="background:#0B64DD;animation-delay:1.18s"></i><i style="background:#0B64DD;animation-delay:1.22s"></i><i style="background:#0B64DD;animation-delay:1.26s"></i><i style="background:#0B64DD;animation-delay:1.30s"></i><i style="background:#0B64DD;animation-delay:1.34s"></i></div><ul><li>ECS names, the same everywhere</li><li>Ingest pipelines parse and enrich</li><li>Data streams, mappings, retention</li></ul></div>
+    <div class="st val in5"><div class="tag">03 <i>· value</i></div><h2>Value</h2><div class="vg"><div class="vi" style="animation-delay:0.70s"><i class="sw" style="background:#0B64DD"></i><div><h4>Dashboards</h4><p>Ready-made SRE and FinOps views</p></div></div><div class="vi" style="animation-delay:0.77s"><i class="sw" style="background:#FF7E62"></i><div><h4>Alerts</h4><p>Rules you switch on</p></div></div><div class="vi" style="animation-delay:0.84s"><i class="sw" style="background:#343741"></i><div><h4>Detection rules</h4><p>Security on normalized data</p></div></div><div class="vi" style="animation-delay:0.91s"><i class="sw" style="background:#02BCB7"></i><div><h4>ML jobs</h4><p>Anomaly detection, no model</p></div></div><div class="vi" style="animation-delay:0.98s"><i class="sw" style="background:#0B64DD"></i><div><h4>Correlation</h4><p>Billing, pods, IAM, one timeline</p></div></div><div class="vi" style="animation-delay:1.05s"><i class="sw" style="background:#02BCB7"></i><div><h4>Investigation</h4><p>ES|QL across every source</p></div></div><div class="vi" style="animation-delay:1.12s"><i class="sw" style="background:#F04E98"></i><div><h4>AI context</h4><p>Grounding for the AI Assistant</p></div></div><div class="vi soon" style="animation-delay:1.19s"><i class="sw" style="background:#98A2B3"></i><div><h4>Workflows <span class='chip'>soon</span></h4><p>Alert to action</p></div></div></div></div>
+</div>
+<div class="ag"><div class="who"><div class="tag">Runs the package</div><h3>Elastic Agent</h3><p>One agent, managed from Fleet.</p></div>
+  <div class="in"><div class="bx"><b>Beats-style inputs</b><span>CEL, filestream, and more</span></div><span class="plus">+</span><div class="bx otel"><b>OpenTelemetry Collector<span class="chip">embedded</span></b><span>OTel signals, same agent</span></div></div>
+</div>
+<div class="mm"><span class="tag">Mix and match: all of it, or a few</span><span class="chip"><b>Network security</b>collect + schema only</span><span class="chip"><b>Kubernetes</b>+ 4 dashboards</span><span class="chip"><b>Object storage</b>+ dashboard + alert rule</span></div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+</body>
+</html>

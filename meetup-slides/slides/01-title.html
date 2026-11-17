@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+
+  h1{font-size:72px;line-height:.98;letter-spacing:-2.8px;margin-top:150px}
+  .sub{font-size:20px;max-width:480px;margin-top:26px}
+  .who{margin-top:34px;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--char);line-height:1.9}
+  .who b{color:var(--ink);font-weight:600}
+
+</style>
+</head>
+<body data-foot="OVH × Elastic · Meetup">
+<div class="z">
+  <div class="eyebrow in1">OVH × Elastic meetup</div>
+  <h1 class="in2">Taming OVH’s<br><span class="b">control plane.</span></h1>
+  <p class="sub in3">Eleven OVH products. One Fleet.</p>
+  <div class="who in4">18 November 2026<br><b>Frederic Maussion</b> · Pr. Solutions Architect, Elastic<br>with Aurelie Vache · OVHcloud</div>
+</div>
+<svg id="hero" class="iso hero" viewBox="0 0 680 720"></svg>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){
+OVH.scene('cover', {seed: 4, labels: false});
+})();
+</script>
+</body>
+</html>

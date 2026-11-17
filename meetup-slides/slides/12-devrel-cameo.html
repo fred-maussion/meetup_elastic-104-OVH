@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OVHcloud for developers</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  .logo{position:absolute;right:72px;top:36px;width:130px;z-index:3;animation:ew-in .6s ease .3s both}
+  h1{font-size:40px;letter-spacing:-1.5px;line-height:1.05;margin-top:96px;max-width:400px}
+  .big{margin-top:34px;font:500 76px/1 var(--sans);letter-spacing:-3px;color:var(--blue)}
+  .bl{font-size:15px;line-height:1.45;color:var(--char);margin-top:8px;max-width:340px}
+  .grid{position:absolute;left:500px;right:72px;top:104px;display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;z-index:2}
+  .tl{display:grid;grid-template-columns:12px 1fr;gap:0 12px;background:#fff;border:1px solid var(--line);padding:13px 16px 12px;min-height:112px;text-decoration:none;color:inherit;animation:ew-in .5s cubic-bezier(.2,.7,.2,1) both}
+  a.tl{border-color:var(--blue);pointer-events:auto;cursor:pointer;position:relative;z-index:6}
+  .tl .sw{margin-top:5px;width:11px;height:11px;display:block}
+  .tl h4{font:600 16px var(--sans);letter-spacing:-.3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tl .used{font-size:8.5px;padding:2px 6px}
+  .tl p{font-size:13px;line-height:1.4;color:var(--grey);margin-top:3px}
+  .tl code{display:block;margin-top:7px;font:500 11px var(--mono);color:var(--blue)}
+</style>
+</head>
+<body data-foot="OVH × Elastic · Part 3">
+<img class="logo" src="assets/img/ovh-wordmark.svg" alt="OVHcloud">
+<div class="z">
+  <h1 class="in3">Everything in your OVHcloud account, <span class="b">over one API.</span></h1>
+  <div class="big in4" id="n">6,000+</div>
+  <div class="bl in4">operations, one token, one header. Yours, your pipeline’s, or your agent’s.</div>
+</div>
+<div class="grid"><div class="tl in3" style="animation-delay:0.40s"><i class="sw" style="background:#0B64DD"></i><div><h4>One API</h4><p>Every product, v1 and v2.</p><code>GET /v1/me</code></div></div><div class="tl in3" style="animation-delay:0.47s"><i class="sw" style="background:#02BCB7"></i><div><h4>Access<span class="chip on used">used by the agent</span></h4><p>A personal access token, or OAuth2 with scopes.</p><code>Authorization: Bearer $OVH_TOKEN</code></div></div><div class="tl in4" style="animation-delay:0.54s"><i class="sw" style="background:#343741"></i><div><h4>Terraform<span class="chip on used">used by the agent</span></h4><p>The OVH provider: IAM identities and policies as code.</p><code>registry.terraform.io/providers/ovh/ovh</code></div></div><div class="tl in4" style="animation-delay:0.61s"><i class="sw" style="background:#FF7E62"></i><div><h4>SDKs</h4><p>Python, Go, Node.js and OKMS.</p><code>pip install ovh</code></div></div><div class="tl in5" style="animation-delay:0.68s"><i class="sw" style="background:#98A2B3"></i><div><h4>CLI</h4><p>The ovhcloud command line, for every product.</p><code>github.com/ovh/ovhcloud-cli</code></div></div><div class="tl in5" style="animation-delay:0.75s"><i class="sw" style="background:#0B64DD"></i><div><h4>MCP server<span class="chip on used">used by the agent</span></h4><p>Your agent talks to OVHcloud in plain language.</p><code>docs.ovhcloud.com</code></div></div><div class="tl in6" style="animation-delay:0.82s"><i class="sw" style="background:#F04E98"></i><div><h4>Build with AI</h4><p>A copy-paste prompt for Claude, Codex, Cursor and opencode.</p><code>Playground · Labs</code></div></div><a class="tl in6" href="https://developers.eu.ovhcloud.com/" target="_blank" rel="noopener" style="animation-delay:0.89s"><i class="sw" style="background:#02BCB7"></i><div><h4>Developer hub<span class="chip on used">used by the agent</span></h4><p>One place for the reference, the SDKs and the guides.</p><code>developers.eu.ovhcloud.com</code></div></a></div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+<script>
+(function(){
+const n = document.getElementById('n');
+n.textContent = '0+';
+const t0 = performance.now();
+const tick = now => { const k = EW.ease(((now - t0) / 1000 - .5) / 1.2); n.textContent = Math.round(6000 * k).toLocaleString('en-US') + '+'; if (k < 1) requestAnimationFrame(tick); };
+requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

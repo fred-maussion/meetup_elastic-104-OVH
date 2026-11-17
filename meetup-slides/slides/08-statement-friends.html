@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Same fields</title>
+<link rel="stylesheet" href="style/eweb.css">
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  h1{font-size:44px;letter-spacing:-1.6px;max-width:1000px}
+  .win.l{left:72px;top:198px;width:380px}
+  .win.r{left:828px;top:198px;width:380px;box-shadow:8px 8px 0 var(--teal)}
+  .fb{padding:0}
+  .fr{height:36px;box-sizing:border-box;padding:9px 20px;font:500 13.5px var(--mono);color:var(--blue);border-top:1px solid var(--line)}
+  .fr:first-child{border-top:0}
+  .mid{position:absolute;left:452px;top:232px;width:376px;z-index:2;display:flex;flex-direction:column}
+  .mid div{height:36px;display:flex;align-items:center}
+  .mid i{flex:1;height:0;border-top:1.5px solid var(--blue);transform-origin:left;animation:ew-wipe .5s ease both}
+  .mid span{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--blue);padding:0 8px;background:#fff}
+  .win.k{left:192px;top:394px;width:896px;box-shadow:8px 8px 0 var(--blue)}
+  .win.k .bar .tr{margin-left:auto;font-size:10px;color:var(--grey)}
+  .kb{padding:10px 14px 12px}
+  .pills{display:flex;gap:8px;align-items:center;margin-bottom:6px;font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+  #flow{position:absolute;left:0;top:0;width:1280px;height:720px;z-index:1}
+  @keyframes rise{from{transform:scaleY(0)}to{transform:none}}
+  @keyframes fi{from{opacity:0}}
+  @keyframes dr{to{stroke-dashoffset:0}}
+</style>
+</head>
+<body data-foot="OVH × Elastic · Part 2">
+<div class="z">
+  <div class="eyebrow in1">The payoff</div>
+  <h1 class="in2">Same fields, same names.<br><span class="b">Invoice and pod, finally friends.</span></h1>
+</div>
+<svg id="flow" viewBox="0 0 1280 720">
+  <defs><marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#0B64DD" stroke-width="1.5"/></marker></defs>
+  <path d="M262 344 C262 372 380 366 396 388" fill="none" stroke="#0B64DD" stroke-width="1.5" stroke-dasharray="120" stroke-dashoffset="120" marker-end="url(#ah)" style="animation:dr .5s ease .8s forwards"/>
+  <path d="M1018 344 C1018 372 900 366 884 388" fill="none" stroke="#0B64DD" stroke-width="1.5" stroke-dasharray="120" stroke-dashoffset="120" marker-end="url(#ah)" style="animation:dr .5s ease .8s forwards"/>
+</svg>
+<div class="win l in3"><div class="bar"><i></i><i></i><i></i><span>Billing event</span></div><div class="fb"><div class="fr"><span>@timestamp</span></div><div class="fr"><span>cloud.region</span></div><div class="fr"><span>service.name</span></div></div></div>
+<div class="mid in4"><div><i style="animation-delay:0.6s"></i><span>=</span><i style="animation-delay:0.6s"></i></div><div><i style="animation-delay:0.7s"></i><span>=</span><i style="animation-delay:0.7s"></i></div><div><i style="animation-delay:0.8s"></i><span>=</span><i style="animation-delay:0.8s"></i></div></div>
+<div class="win r in3"><div class="bar"><i></i><i></i><i></i><span>Pod restart</span></div><div class="fb"><div class="fr"><span>@timestamp</span></div><div class="fr"><span>cloud.region</span></div><div class="fr"><span>service.name</span></div></div></div>
+<div class="win k in4"><div class="bar"><i></i><i></i><i></i><span>Kibana · one timeline, two signals</span><span class="tr">Illustrative</span></div>
+  <div class="kb">
+    <div class="pills"><span class="chip on">cloud.region</span><span class="chip on">service.name</span><span>filtered on the shared fields</span></div>
+    <svg viewBox="0 0 868 160" width="868" height="160">
+      <text x="2" y="12" font-family="IBM Plex Mono" font-size="10" font-weight="600" letter-spacing=".06em" fill="#FF7E62">SPEND</text>
+      <text x="2" y="86" font-family="IBM Plex Mono" font-size="10" font-weight="600" letter-spacing=".06em" fill="#F04E98">POD RESTARTS</text>
+      <line x1="2" y1="70" x2="866" y2="70" stroke="#D3DAE6"/><line x1="2" y1="150" x2="866" y2="150" stroke="#D3DAE6"/>
+      <polyline points="70,56 150,54 230,56 310,52 380,50 430,30 470,10 510,26 560,44 640,50 720,48 860,46" fill="none" stroke="#FF7E62" stroke-width="2.2" stroke-dasharray="1200" stroke-dashoffset="1200" style="animation:dr 1s ease .9s forwards"/>
+      <rect x="70" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:76px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.00s both"/><rect x="104" y="144" width="12" height="6" fill="#F04E98" opacity=".9" style="transform-origin:110px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.01s both"/><rect x="138" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:144px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.03s both"/><rect x="172" y="145" width="12" height="5" fill="#F04E98" opacity=".9" style="transform-origin:178px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.04s both"/><rect x="206" y="144" width="12" height="6" fill="#F04E98" opacity=".9" style="transform-origin:212px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.06s both"/><rect x="240" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:246px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.07s both"/><rect x="274" y="145" width="12" height="5" fill="#F04E98" opacity=".9" style="transform-origin:280px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.09s both"/><rect x="308" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:314px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.10s both"/><rect x="342" y="145" width="12" height="5" fill="#F04E98" opacity=".9" style="transform-origin:348px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.12s both"/><rect x="376" y="144" width="12" height="6" fill="#F04E98" opacity=".9" style="transform-origin:382px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.14s both"/><rect x="410" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:416px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.15s both"/><rect x="444" y="122" width="12" height="28" fill="#F04E98" opacity=".9" style="transform-origin:450px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.17s both"/><rect x="478" y="106" width="12" height="44" fill="#F04E98" opacity=".9" style="transform-origin:484px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.18s both"/><rect x="512" y="118" width="12" height="32" fill="#F04E98" opacity=".9" style="transform-origin:518px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.20s both"/><rect x="546" y="143" width="12" height="7" fill="#F04E98" opacity=".9" style="transform-origin:552px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.21s both"/><rect x="580" y="145" width="12" height="5" fill="#F04E98" opacity=".9" style="transform-origin:586px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.23s both"/><rect x="614" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:620px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.24s both"/><rect x="648" y="144" width="12" height="6" fill="#F04E98" opacity=".9" style="transform-origin:654px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.25s both"/><rect x="682" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:688px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.27s both"/><rect x="716" y="145" width="12" height="5" fill="#F04E98" opacity=".9" style="transform-origin:722px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.28s both"/><rect x="750" y="146" width="12" height="4" fill="#F04E98" opacity=".9" style="transform-origin:756px 150px;animation:rise .5s cubic-bezier(.2,.7,.2,1) 1.30s both"/>
+      <g style="animation:fi .5s ease 1.5s both"><rect x="426" y="2" width="104" height="150" fill="#0B64DD" opacity=".08"/><line x1="426" y1="2" x2="426" y2="152" stroke="#0B64DD" stroke-dasharray="3 3"/><line x1="530" y1="2" x2="530" y2="152" stroke="#0B64DD" stroke-dasharray="3 3"/>
+      <text x="478" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" font-weight="600" letter-spacing=".06em" fill="#0B64DD">SAME MOMENT</text></g>
+    </svg>
+  </div>
+</div>
+<script src="style/eweb.js"></script>
+<script src="assets/scenes.js"></script>
+<script src="/js/fuckslides.js"></script>
+</body>
+</html>
