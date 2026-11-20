@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Generates the OVH x Elastic meetup deck in the elastic-web fslides style.
+"""Generates the OVHcloud x Elastic meetup deck in the elastic-web fslides style.
 Run: python3 generate_slides.py   (rewrites slides/*.html, notes.json, fslides.config.js)
 """
 import os, json
@@ -20,7 +20,7 @@ NOTE_OVERRIDES = {
     "15-four-integrations.html": "DRAFT. Eleven integrations today: compute, dedicated servers, managed Kubernetes, Rancher, DBaaS, object storage, load balancer, network security, IAM, billing, and AI / ML. Do not read the list: name the four groups and point at the empty slot on the platform, that one is the next integration (and your cue towards the ask). Slide file name still says four-integrations; only the filename is stale.",
     "14-section4.html": "DRAFT. ~7 min. Eleven integrations is too many to walk through: pick two to show (Kubernetes, FinOps) and let the platform graphic carry the rest. Pacing check: if you are running behind, cut one of the two dashboard placeholder slides.",
     "26-ask-thanks.html": "Final slide, after Questions. The ask: feedback, people willing to try the integrations on their own tenant, and contributors. Then a sincere thank you to OVHcloud for the opportunity and to Aurelie for trusting me with her tenant. Land it with a smile: nothing broke.",
-    "11-terraform.html": "DRAFT. This is the OVH Terraform provider beat. The snippet on the slide is an illustrative skeleton with placeholders (the real IAM policy file does not exist yet); if time allows, show the real .tf file or the registry page live instead and treat the slide as the fallback. Hand off to [OVH DevRel Name] right after this.",
+    "11-terraform.html": "DRAFT. This is the OVHcloud Terraform provider beat. The snippet on the slide is an illustrative skeleton with placeholders (the real IAM policy file does not exist yet); if time allows, show the real .tf file or the registry page live instead and treat the slide as the fallback. Hand off to [OVHcloud DevRel Name] right after this.",
     "16-dashboard-k8s.html": "Real screenshot from the ovh_managed_kubernetes integration (Node SRE dashboard, assets/img/k8s-nodes.png). Other dashboards in the package: node pool, cluster logs, audit logs. Swap the image if you want a fresher capture from the demo tenant.",
     "17-dashboard-finops.html": "Real screenshot from the ovh_billing integration, cropped below the KPI row (assets/img/finops.png). It is also the dashboard you return to live in part 5: keep filters and time range consistent with what you show live. The unedited screenshot shows real spend figures and a garbled Net Cost tile, so check before sharing the deck outside the room.",
 }
@@ -53,7 +53,7 @@ def page(title, foot, css, body, js="", soft=False, hero=None):
 '''
 
 HERO = '<svg id="hero" class="iso hero" viewBox="0 0 680 720"></svg>'
-FOOT = "OVH × Elastic"
+FOOT = "OVHcloud × Elastic"
 
 def scene_js(kind, seed=4, labels=False):
     return f"OVH.scene('{kind}', {{seed: {seed}, labels: {'true' if labels else 'false'}}});"
@@ -76,9 +76,9 @@ add("01-title.html", "Title", page("Title", f"{FOOT} · Meetup", """
   .who{margin-top:34px;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--char);line-height:1.9}
   .who b{color:var(--ink);font-weight:600}
 """, f"""<div class="z">
-  <div class="eyebrow in1">OVH × Elastic meetup</div>
+  <div class="eyebrow in1">OVHcloud × Elastic meetup</div>
   <h1 class="in2">Taming OVH’s<br><span class="b">control plane.</span></h1>
-  <p class="sub in3">Eleven OVH products. One Fleet.</p>
+  <p class="sub in3">Eleven OVHcloud products. One Fleet.</p>
   <div class="who in4">[Date]<br><b>[Your Name]</b> · Solutions Architect, Elastic</div>
 </div>
 {HERO}""", scene_js("cover")))

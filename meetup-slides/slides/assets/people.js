@@ -12,7 +12,7 @@ window.PPL = (function(){
 
   function iso(svg, o){ const sc = EW.iso(svg, o); sc.s = o.s; return sc; }
 
-  // OVH mark skewed onto a front face (plane y = yp); x = left edge, zt = top edge, size in scene units
+  // OVHcloud mark skewed onto a front face (plane y = yp); x = left edge, zt = top edge, size in scene units
   function mark(sc, x, yp, zt, size, delay){
     const [e, f] = sc.P(x, yp, zt), s = sc.s, k = size / 47.18;
     sc.top.insertAdjacentHTML('beforeend',
@@ -49,7 +49,7 @@ window.PPL = (function(){
     return {front: fr, head: sc.P(x0 + 21, y0 + 14, 94)};
   }
 
-  // A person from OVHcloud: white shirt with the OVH mark, brown hair
+  // A person from OVHcloud: white shirt with the OVHcloud mark, brown hair
   function ovh(sc, x0, y0, d){
     body(sc, x0, y0, d, F.white, 'blue');
     const fr = arms(sc, x0, y0, d, F.white, F.skin);
@@ -59,7 +59,7 @@ window.PPL = (function(){
     return {front: fr, head: sc.P(x0 + 21, y0 + 14, 94), chest: () => mark(sc, x0 + 15, y0 + 22, 60, 12, d + .8)};
   }
 
-  // The AI: pink torso and cube head with an antenna. The face is a white plate with the OVH mark, hidden under a yellow disguise mask.
+  // The AI: pink torso and cube head with an antenna. The face is a white plate with the OVHcloud mark, hidden under a yellow disguise mask.
   function ai(sc, x0, y0, d, o){
     o = o || {};
     body(sc, x0, y0, d, F.pink, 'ink');

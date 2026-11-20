@@ -1,4 +1,4 @@
-/* Shared isometric scenes for the OVH x Elastic deck. Built on style/eweb.js */
+/* Shared isometric scenes for the OVHcloud x Elastic deck. Built on style/eweb.js */
 window.OVH = (function(){
   const RED = {top:'#FFFFFF', left:'#E0352B', right:'#9E1F18'};
   const S = {};
@@ -13,13 +13,13 @@ window.OVH = (function(){
     sc.box({x: 72, y: 34, w: 80, d: 80, h: 80, z: 46, c: 'blue', delay: .7, drop: 150, order: 50});
     sc.box({x: 60, y: 22, w: 104, d: 104, h: 104, z: 46, c: 'glass', wire: true, inner: true, stroke: '#343741', delay: .95, drop: 0, snap: false, order: 60});
     sc.label({at: [164, 22, 46 + 90], side: 'r', len: 50, title: 'Elasticsearch', sub: 'One place to look', delay: 1.2});
-    sc.label({at: [22, 250, 46 + 100], side: 'l', len: 60, title: 'OVH signals', sub: 'Eleven products', delay: 1.1});
+    sc.label({at: [22, 250, 46 + 100], side: 'l', len: 60, title: 'OVHcloud signals', sub: 'Eleven products', delay: 1.1});
     sc.label({at: [250, 26, 46 + 38], side: 'r', len: 40, title: 'Integrations', sub: 'CEL + ECS', delay: 1.25});
     sc.label({at: [270, 60, 23], side: 'r', len: 36, title: 'Fleet', sub: 'The platform', delay: 1.35});
     return sc;
   };
 
-  // Fragmented: eleven separate cubes, one per OVH product, colored by group.
+  // Fragmented: eleven separate cubes, one per OVHcloud product, colored by group.
   S.scatter = function(svg){
     const sc = EW.iso(svg, {ox: 300, oy: 200, s: .9});
     sc.rect({x: -20, y: -20, w: 370, d: 280, z: 0, delay: .05, dash: '2 4'});
@@ -107,7 +107,7 @@ window.OVH = (function(){
     sc.box({x: 72, y: 34, w: 80, d: 80, h: 80, z: 46, c: 'pink', delay: .7, drop: 150, order: 50});
     sc.box({x: 60, y: 22, w: 104, d: 104, h: 104, z: 46, c: 'glass', wire: true, inner: true, stroke: '#343741', delay: .95, drop: 0, snap: false, order: 60});
     if (labels){
-      sc.label({at: [164, 22, 46 + 90], side: 'r', len: 50, title: 'OVH AI Endpoints', sub: 'The model', delay: 1.2});
+      sc.label({at: [164, 22, 46 + 90], side: 'r', len: 50, title: 'OVHcloud AI Endpoints', sub: 'The model', delay: 1.2});
       sc.label({at: [270, 60, 23], side: 'r', len: 64, title: 'Elastic AI Assistant', sub: 'The connector', delay: 1.35});
     }
     const [cx, cy] = sc.P(112, 74, 46);
